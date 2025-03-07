@@ -1,7 +1,12 @@
 package br.com.dio.REST_spring.domain.entity.product;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+import java.math.BigInteger;
 
 @Table(name = "product")
 @Entity(name = "product")
@@ -13,11 +18,12 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
+
     private String name;
-    private Double price;
 
+    private Integer price;
 
-    public Product(ProductRequestDTO data) {
+    public Product(ProductRequestDTO data){
         this.price = data.price();
         this.name = data.name();
     }
