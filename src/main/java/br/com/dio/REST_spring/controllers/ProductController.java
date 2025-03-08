@@ -23,7 +23,7 @@ public class ProductController {
         Product newProduct = new Product(body);
 
         this.repository.save(newProduct);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok().body(newProduct);
     }
 
     @GetMapping
